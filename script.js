@@ -1,1 +1,1 @@
-alert("test")
+$('footer').html("test");

@@ -18,8 +18,7 @@ nav {
 }
 
 main {
-
-  height: 73%;
+  height: 71%;
   width: 100%;
 }
 
@@ -27,15 +26,16 @@ footer {
   border-top: 3px solid #000000;
   height: 3%;
   width: 100%;
+  text-align: right;
 }
 
 #logo {
   max-height: 90%;
   float: left;
+  margin-right: 20px;
 }
 
 #title {
-  height: 90%;
-  vertical-align: bottom;
-  border: 1px solid black;
+  position: relative;
+  top: 40%;
 }

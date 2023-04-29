@@ -1,10 +1,13 @@
+const url = "perform.php";
+
 $(document).ready(function () {
   $('footer').text($('footer').text() + new Date().getFullYear().toString());
   Init();
 });
 
 function GetSite(site) {
-  $.getJSON("perform.php")
+  const param = {"a": "GetSite","site": site}
+  $.getJSON(url, param)
   .done(function (data) {
     cb_GetSite(data);
   })
@@ -13,8 +16,10 @@ function GetSite(site) {
   })
 }
 
-function cb_GetSite() {
+function cb_GetSite(data) {
   console.log("seite geladen");
+  console.log(data);
+  $('main').html(data['AddSite']);
 }
 
 class User {
@@ -25,7 +30,7 @@ class User {
 }
 
 function Init() {
-  $.getJSON("perform.php")
+  $.getJSON(url)
   .done(function (data) {
     cb_Init(data);
   })

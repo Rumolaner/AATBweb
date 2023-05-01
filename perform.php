@@ -8,7 +8,17 @@ if (isset($_SESSION['userid'])){
 } else {
   $data['loggedin'] = false;
 }
-$data['AddSite'] = '<div>Hello this is a test</div>';
+
+$module = "actions/" . $_REQUEST['a'] . ".mod";
+if ($_REQUEST['a'] != "") {
+  $module = "actions/" .$_REQUEST['a']. ".mod";
+}
+
+if (file_exists($module)){
+  include($module);
+} else {
+  $data['com'][] = "Error: Module could not be loaded";
+}
 
 echo json_encode($data);
 

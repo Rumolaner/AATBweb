@@ -18,7 +18,7 @@ nav {
 }
 
 main {
-  height: 71%;
+  height: 68%;
   width: 100%;
 }
 
@@ -38,4 +38,43 @@ footer {
 #title {
   position: relative;
   top: 40%;
+}
+
+#message {
+  background-color: #dddddd;
+  color: red;
+  height: 3%;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+#mainLogin {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#loginBox {
+  width: 350px;
+  height: 250px;
+  border: 3px double black;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+#loginBox label {
+  margin: 12px;
+  width: 150px;
+  display: block;
+  float: left;
+}
+
+#loginBox input {
+  margin: 12px;
+}
+
+#loginBox button {
+  margin: 12px;
 }

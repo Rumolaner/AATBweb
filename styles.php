@@ -1,7 +1,15 @@
+<?php
+
+header("Content-type: text/css");
+
+?>
+
 body {
   position: absolute;
   height: 99%;
   width: 99%;
+  background-color: #ffffff;
+  color: #000000;
 }
 
 header {

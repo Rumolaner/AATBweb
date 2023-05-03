@@ -20,6 +20,7 @@ class clsUser{
     $this->id = $id;
     $this->active = false;
     $this->error = "error2001";
+    $this->sql = new clsMysql();
   }
 
   protected function login($mandant, $username, $password){
@@ -28,6 +29,7 @@ class clsUser{
     $this->password = $password;
     $this->active = false;
     $this->error = "error2000";
+    $this->sql = new clsMysql();
   }
 }
 

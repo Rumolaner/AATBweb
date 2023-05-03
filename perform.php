@@ -3,10 +3,12 @@
 session_start();
 header ('Content-Type: application/json');
 
+include "classes/clsConfig.php";
 include "classes/clsParam.php";
 include "functions/funGetLang.php";
 include "classes/clsTranslate.php";
 include "classes/clsUser.php";
+include "classes/clsMysql.php";
 
 //prepare parameters
 $param = new clsParam($_SESSION, $_REQUEST);

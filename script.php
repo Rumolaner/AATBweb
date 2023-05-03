@@ -31,7 +31,7 @@ function Init() {
     cb_Init(data);
   })
   .fail(function () {
-    Protocol("<?php echo $trans->get('error1001') ?>");
+    Protocol("<?php echo $trans->get('error1002') ?>");
   })
   .always(function (data) {
     cb_always(data);
@@ -87,7 +87,7 @@ function Login() {
       cb_Login(data);
     })
     .fail(function () {
-      Protocol("<?php echo $trans->get('error1002') ?>");
+      Protocol("<?php echo $trans->get('error1003') ?>");
     })
     .always(function (data) {
       cb_always(data);

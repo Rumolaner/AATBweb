@@ -5,7 +5,7 @@ class clsTranslate {
   function __construct($lang = "de") {
     $this->lang = $lang;
 
-    $content = file_get_contents("languages/" . $this->lang . ".lang");
+    $content = file_get_contents("languages/" . $this->lang . ".lang.php");
     $this->content = json_decode($content);
   }
 

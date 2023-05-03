@@ -3,10 +3,16 @@
 session_start();
 header ('Content-Type: application/json');
 
+include "classes/clsParam.php";
 include "functions/funGetLang.php";
 include "classes/clsTranslate.php";
+include "classes/clsUser.php";
 
-if (isset($_SESSION['userid'])){
+//prepare parameters
+$param = new clsParam($_SESSION, $_REQUEST);
+
+$userid = $param->get('userid');
+if ((int)$userid > 0){
   $data['loggedin'] = true;
 } else {
   $data['loggedin'] = false;
@@ -16,15 +22,15 @@ if (isset($_SESSION['userid'])){
 $data['lang'] = funGetLang();
 $trans = new clsTranslate($data['lang']);
 
-$module = "actions/" . $_REQUEST['a'] . ".mod";
-if ($_REQUEST['a'] != "") {
-  $module = "actions/" .$_REQUEST['a']. ".mod";
+$module = "actions/" . $param->get('a') . ".mod.php";
+if ($param->get('a') != "") {
+  $module = "actions/" .$param->get('a'). ".mod.php";
 }
 
 if (file_exists($module)){
   include($module);
 } else {
-  $data['com'][] = "Error: Module could not be loaded";
+  $data['com'][] = "Error: " . $trans->get('error1000');
 }
 
 echo json_encode($data);

@@ -11,10 +11,14 @@ class clsParam {
     if ($set == 'session' || $set == ''){
       $result = $this->session[$key];
     }
-    if ($set == 'request' || $set == ''){
+    if (($set == 'request' || $set == '') && $result == ""){
       $result = $this->request[$key];
     }
     return $result;
+  }
+
+  function setSession($var, $value){
+    $_SESSION[$var] = $value;
   }
 }
 

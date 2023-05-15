@@ -65,7 +65,7 @@ footer {
 }
 
 #loginBox {
-  width: 350px;
+  width: 400px;
   height: 250px;
   border: 3px double black;
   border-radius: 15px;
@@ -73,14 +73,14 @@ footer {
 }
 
 #loginBox label {
-  margin: 12px;
+  margin: 10px;
   width: 150px;
   display: block;
   float: left;
 }
 
 #loginBox input {
-  margin: 12px;
+  margin: 10px;
 }
 
 #loginBox button {

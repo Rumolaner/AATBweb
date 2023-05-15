@@ -6,6 +6,7 @@ header ('Content-Type: application/json');
 include "classes/clsConfig.php";
 include "classes/clsParam.php";
 include "functions/funGetLang.php";
+include "functions/funLog.php";
 include "classes/clsTranslate.php";
 include "classes/clsUser.php";
 include "classes/clsMysql.php";
@@ -33,6 +34,7 @@ if (file_exists($module)){
   include($module);
 } else {
   $data['com'][] = "Error: " . $trans->get('error1000');
+  funLog("Error", "Modul konnte nicht geladen werden: ".$module);
 }
 
 echo json_encode($data);

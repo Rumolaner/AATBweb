@@ -10,6 +10,7 @@
 
   "error2000": "Mandant, Benutzername oder Kennwort sind falsch",
   "error2001": "Der Benutzer ist unbekannt",
+  "error2002": "Die Kombination aus Mandant und Benutzername ist nicht eindeutig. Der Login wird verweigert!",
 
   "mandant": "Mandant",
   "benutzername": "Benutzername",

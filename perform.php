@@ -25,7 +25,7 @@ if ((int)$userid > 0){
 $data['lang'] = funGetLang();
 $trans = new clsTranslate($data['lang']);
 
-$module = "actions/" . $param->get('a') . ".mod.php";
+//$module = "actions/" . $param->get('a') . ".mod.php";
 if ($param->get('a') != "") {
   $module = "actions/" .$param->get('a'). ".mod.php";
 }

@@ -68,7 +68,7 @@ function cb_Init(data) {
     //Neuer user oder user löschen und login anzeigen
     user = new User();
     if (!$('#mainLogin').length){
-      $('main').html($('main').html() + data['AddSite']);
+      $('main').html($('main').html() + data['AddSite']['main'][0]);
     }
   }
 }

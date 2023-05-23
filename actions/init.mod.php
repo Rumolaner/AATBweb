@@ -2,8 +2,8 @@
 
 $site = file_get_contents('templates/login.tpl.php');
 if (!$site) {
-  $data['com'][] = "Error: ".$trans->get('error1000');
-  $data['AddSite'] = "";
+  $answer->setCOM("Error: ".$trans->get('error1000'));
+//  $data['AddSite'] = "";
 } else {
 
   $site = str_replace("{{mandant}}", $trans->get('mandant'), $site);
@@ -11,7 +11,8 @@ if (!$site) {
   $site = str_replace("{{password}}", $trans->get('password'), $site);
   $site = str_replace("{{clear}}", $trans->get('btnclear'), $site);
   $site = str_replace("{{submit}}", $trans->get('btnlogin'), $site);
-  $data['AddSite'] = $site;
+//  $data['AddSite']['main'] = $site;
+  $answer->setSite('main', $site);
 }
 
 ?>

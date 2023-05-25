@@ -64,11 +64,11 @@ function cb_always(data){
 }
 
 function cb_Init(data) {
-  if (data['loggedin'] == false) {
+  if (data['user']['loggedin'] == false) {
     //Neuer user oder user löschen und login anzeigen
     user = new User();
     if (!$('#mainLogin').length){
-      $('main').html($('main').html() + data['AddSite']['main'][0]);
+      $('main').html($('main').html() + data['addSite']['main'][0]);
     }
   }
 }

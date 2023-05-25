@@ -18,9 +18,9 @@ $answer = new clsAnswer();
 
 $userid = $param->get('userid');
 if ((int)$userid > 0){
-  $data['loggedin'] = true;
+  $answer->setUser('loggedin', true);
 } else {
-  $data['loggedin'] = false;
+  $answer->setUser('loggedin', false);
 }
 
 //set user language, expand if more languages are implemented

@@ -7,6 +7,7 @@ header("Content-type: text/css");
 body {
   position: absolute;
   height: 99%;
+  min-height: 800px;
   width: 99%;
   background-color: #ffffff;
   color: #000000;

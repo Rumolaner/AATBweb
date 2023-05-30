@@ -38,13 +38,13 @@ footer {
   text-align: right;
 }
 
-#logo {
+#headerLogo {
   max-height: 90%;
   float: left;
   margin-right: 20px;
 }
 
-#title {
+#headerTitle {
   position: relative;
   top: 40%;
 }

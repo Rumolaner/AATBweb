@@ -67,9 +67,7 @@ function cb_Init(data) {
   if (data['user']['loggedin'] == false) {
     //Neuer user oder user löschen und login anzeigen
     user = new User();
-    if (!$('#mainLogin').length){
-      $('main').html($('main').html() + data['addSite']['main'][0]);
-    }
+    $('main').html($('main').html() + data['addSite']['main'][0]);
   }
 }
 
@@ -81,7 +79,7 @@ function Login() {
   } else if ($('#password').val() == ""){
     Message("<?php echo $trans->get('error3') ?>");
   } else {
-    const param = {"a": "login", "m": $('#mandant').val(), "u": $('#username').val(), "p": $('password').val()};
+    const param = {"a": "login", "m": $('#mandant').val(), "u": $('#username').val(), "p": $('#password').val()};
     $.getJSON(url, param)
     .done(function (data) {
       cb_Login(data);

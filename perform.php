@@ -9,6 +9,7 @@ include "functions/funGetLang.php";
 include "functions/funLog.php";
 include "classes/clsTranslate.php";
 include "classes/clsUser.php";
+include "classes/clsMandant.php";
 include "classes/clsMysql.php";
 include "classes/clsAnswer.php";
 

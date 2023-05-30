@@ -11,11 +11,17 @@
   "error2000": "Mandant, Benutzername oder Kennwort sind falsch",
   "error2001": "Der Benutzer ist unbekannt",
   "error2002": "Die Kombination aus Mandant und Benutzername ist nicht eindeutig. Der Login wird verweigert!",
+  "error2003": "Der Mandant ist unbekannt",
+  "error2004": "Login verweigert, der Mandant ist inaktiv",
+  "error2005": "Login verweigert, Benutzerdaten sind nicht eindeutig",
+  "error2006": "Login verweigert, der Benutzer ist inaktiv",
 
   "mandant": "Mandant",
   "benutzername": "Benutzername",
   "password": "Kennwort",
+  "unbekannt": "Unbekannt",
 
   "btnclear": "Leeren",
-  "btnlogin": "Einloggen"
+  "btnlogin": "Einloggen",
+  "btnlogout": "Ausloggen"
 }

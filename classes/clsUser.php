@@ -28,25 +28,35 @@ class clsUser{
 
   protected function login($mandant, $username, $password){
     $this->id = 0;
-    $this->mandant = $mandant;
+    $this->mandant = null;
     $this->username = $username;
     $this->password = $password;
     $this->active = false;
     $this->error = "error2000";
 
-    $stmt = "SELECT tuser.id, tuser.password, tuser.name from tuser inner join tmandant on tuser.tmandant_id = tmandant.id where tuser.login = ? and tmandant.name = ?";
+    $stmt = "SELECT tuser.id, tuser.password, tuser.name, tmandant.id as manid, tuser.active from tuser inner join tmandant on tuser.tmandant_id = tmandant.id where tuser.login = ? and tmandant.name = ?";
     $params = [$username, $mandant];
     $res = $this->sql->get($stmt, "ss", $params);
 
     if ($res->num_rows > 1){
-      $this->error = "error2003";
+      $this->error = "error2005";
     } elseif ($res->num_rows == 1){
       while($row = $res->fetch_array(MYSQLI_ASSOC)){
         if (password_verify($password, $row['password'])){
           $this->error = "";
-          $this->active = true;
+          $this->active = ($row['active']?true:false);
           $this->id = $row['id'];
           $this->name = $row['name'];
+          $this->mandant = new clsMandant($row['manid']);
+
+          if (!$this->active){
+            $this->error = "error2006";
+          }
+
+          if (!$this->mandant->active){
+            $this->active = false;
+            $this->error = "error2004";
+          }
         } else {
           $this->error = "error2000";
         }

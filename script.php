@@ -24,20 +24,6 @@ class User {
   }
 }
 
-function Init() {
-  const param = {"a": "init"};
-  $.getJSON(url, param)
-  .done(function (data) {
-    cb_Init(data);
-  })
-  .fail(function () {
-    Protocol("<?php echo $trans->get('error1002') ?>");
-  })
-  .always(function (data) {
-    cb_always(data);
-  })
-}
-
 function Protocol(text) {
   console.log(new Date().toLocaleTimeString("de-DE") + ": " + text);
 }
@@ -47,7 +33,23 @@ function Message(text) {
   $("#message").scrollTop(function() { return this.scrollHeight; });
 }
 
+function transSites(sites){
+  if (Array.isArray(sites)){
+    sites.forEach (function (site, index) {
+      if (site['action'] == 'add'){
+        $(site['parent']).html($(site['parent']).html() + site['site']);
+      } else if (site['action'] == 'delete'){
+        $(site['parent']).remove();
+      } else if (site['action'] == 'clear'){
+        $(site['parent']).html("");
+    }
+    });
+  }
+}
+
 function cb_always(data){
+  transSites(data['sites']);
+
   if (typeof data['com'] !== 'undefined'){
     $('#message').text = "";
     for (let i = 0; i < data['com'].length; i++){
@@ -63,11 +65,24 @@ function cb_always(data){
   }
 }
 
+function Init() {
+  const param = {"a": "init"};
+  $.getJSON(url, param)
+  .done(function (data) {
+    cb_Init(data);
+  })
+  .fail(function () {
+    Protocol("<?php echo $trans->get('error1002') ?>");
+  })
+  .always(function (data) {
+    cb_always(data);
+  })
+}
+
 function cb_Init(data) {
   if (data['user']['loggedin'] == false) {
     //Neuer user oder user löschen und login anzeigen
     user = new User();
-    $('main').html($('main').html() + data['addSite']['main'][0]);
   }
 }
 
@@ -91,6 +106,7 @@ function Login() {
       cb_always(data);
     })
   }
+  $('#password').val('');
 }
 
 function cb_Login(data) {

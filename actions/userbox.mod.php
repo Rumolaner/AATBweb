@@ -12,7 +12,8 @@ if (!$ub) {
   $ub = str_replace("{{mandant_value}}", $user->mandant->name, $ub);
   $ub = str_replace("{{benutzername_value}}", $user->name, $ub);
 
-  $answer->setSite('header', $ub);
+  $answer->setSite('add', 'header', $ub);
+  $answer->setSite('clear', 'main');
 }
 
 ?>

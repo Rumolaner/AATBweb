@@ -5,7 +5,7 @@ class clsMandant{
     $this->sql = new clsMysql();
 
     $this->id = 0;
-    $this->name;
+    $this->name = "";
     $this->active = false;
     $this->error = "error2003";
 

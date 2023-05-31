@@ -8,10 +8,10 @@ class clsParam {
 
   function get($key, $set = ''){
     $result = "";
-    if ($set == 'session' || $set == ''){
+    if (($set == 'session' || $set == '') && isset($this->session[$key])){
       $result = $this->session[$key];
     }
-    if (($set == 'request' || $set == '') && $result == ""){
+    if (($set == 'request' || $set == '') && $result == "" && isset($this->request[$key])){
       $result = $this->request[$key];
     }
     return $result;

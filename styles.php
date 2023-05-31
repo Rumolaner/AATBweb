@@ -49,6 +49,12 @@ footer {
   top: 40%;
 }
 
+#headerUser {
+  border: 1px solid #777777;
+  float: right;
+  padding: 10px;
+}
+
 #message {
   background-color: #dddddd;
   color: red;

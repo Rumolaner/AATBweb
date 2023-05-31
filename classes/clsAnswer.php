@@ -15,8 +15,12 @@ class clsAnswer {
     $this->com[] = $text;
   }
 
-  function setSite($parent, $site){
-    $this->site[$parent][] = $site;
+  function setSite($action, $parent, $site = "", $visible = true){
+    $temp['action'] = $action;
+    $temp['parent'] = $parent;
+    $temp['site'] = $site;
+    $temp['visible'] = $visible;
+    $this->site[] = $temp;
   }
 
   function getJSON(){
@@ -32,13 +36,17 @@ class clsAnswer {
       $data['com'][] = array_shift($this->com);
     }
 
-    $keys = array_keys($this->site);
     while (count($this->site) > 0){
       $values = array_shift($this->site);
-      $key = array_shift($keys);
+      $keys = array_keys($values);
+      $site = array();
       while (count($values) > 0){
-        $data['addSite'][$key][] = array_shift($values);
+        $key = array_shift($keys);
+        $site[$key] = $values[$key];
+        unset($values[$key]);
       }
+      $data['sites'][] = $site;
+
     }
 
     return json_encode($data);

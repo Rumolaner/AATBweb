@@ -18,19 +18,32 @@ $param = new clsParam($_SESSION, $_REQUEST);
 $answer = new clsAnswer();
 
 $userid = $param->get('userid');
+$answer->setUser('loggedin', false);
 if ((int)$userid > 0){
-  $answer->setUser('loggedin', true);
+  $user = clsUser::withId((int)$userid);
+
+  if ($user->active){
+    $answer->setUser('loggedin', true);
+  }
 } else {
-  $answer->setUser('loggedin', false);
+  $user = new clsUser();
 }
 
 //set user language, expand if more languages are implemented
-$data['lang'] = funGetLang();
-$trans = new clsTranslate($data['lang']);
+$lang = funGetLang();
+$trans = new clsTranslate($lang);
 
-//$module = "actions/" . $param->get('a') . ".mod.php";
-if ($param->get('a') != "") {
-  $module = "actions/" .$param->get('a'). ".mod.php";
+$module = $param->get('a');
+if (!$user->active && $module != 'init' && $module != 'login'){
+  $answer->setSite('clear', 'main');
+  $answer->setSite('clear', 'nav');
+  $answer->setSite('delete', '#userBox');
+  $module = "init";
+  $answer->setCOM("Error: " . $trans->get($user->error));
+}
+
+if ($module != "") {
+  $module = "actions/" .$module. ".mod.php";
 }
 
 if (file_exists($module)){

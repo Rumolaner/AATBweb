@@ -1,7 +1,9 @@
 <?php
 
 if ($user->active){
-  include('userbox.mod.php');
+  include('actions/userbox.mod.php');
+  include('actions/mainnav.mod.php');
+  include('actions/overview.mod.php');
 } else {
   $site = file_get_contents('templates/login.tpl.php');
   if (!$site) {

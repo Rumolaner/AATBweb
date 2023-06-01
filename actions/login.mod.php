@@ -15,9 +15,10 @@ if (!$user->active){
   $id = $user->id;
   $param->setSession('userid', $id);
 
+  $answer->setSite('clear', 'main');
   include ('actions/userbox.mod.php');
+  include ('actions/mainnav.mod.php');
+  include ('actions/overview.mod.php');
 }
-
-//var_dump($user);
 
 ?>

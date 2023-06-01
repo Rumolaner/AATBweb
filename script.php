@@ -130,3 +130,15 @@ function Logout() {
 function cb_Logout(data) {
   user = new User();
 }
+
+function Overview(){
+  alert("Overview in Vordergrund bringen!");
+}
+
+function Cat(){
+  alert("Katzen in Vordergrund bringen!");
+}
+
+function Litter(){
+  alert("Würfe in Vordergrund bringen!");
+}

@@ -19,11 +19,20 @@ header {
   width: 100%;
 }
 
+button {
+  background-color: white;
+  border-color: lightblue;
+}
+
 nav {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   height: 3%;
   width: 100%;
+}
+
+nav button {
+  margin: 2px;
 }
 
 main {
@@ -53,6 +62,12 @@ footer {
   border: 1px solid #777777;
   float: right;
   padding: 10px;
+}
+
+#headerUser button {
+  margin: 2px;
+  background-color: white;
+  border-color: lightblue;
 }
 
 #message {

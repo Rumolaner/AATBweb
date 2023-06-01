@@ -37,7 +37,7 @@ $module = $param->get('a');
 if (!$user->active && $module != 'init' && $module != 'login'){
   $answer->setSite('clear', 'main');
   $answer->setSite('clear', 'nav');
-  $answer->setSite('delete', '#userBox');
+  $answer->setSite('delete', '#headerUser');
   $module = "init";
   $answer->setCOM("Error: " . $trans->get($user->error));
 }

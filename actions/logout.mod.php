@@ -6,7 +6,7 @@ $user->active = false;
 
 $answer->setSite('clear', 'main');
 $answer->setSite('clear', 'nav');
-$answer->setSite('delete', '#userBox');
+$answer->setSite('delete', '#headerUser');
 
 include('actions/init.mod.php');
 

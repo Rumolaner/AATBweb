@@ -13,7 +13,6 @@ if (!$ub) {
   $ub = str_replace("{{benutzername_value}}", $user->name, $ub);
 
   $answer->setSite('add', 'header', $ub);
-  $answer->setSite('clear', 'main');
 }
 
 ?>

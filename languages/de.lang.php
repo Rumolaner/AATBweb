@@ -16,6 +16,10 @@
   "error2005": "Login verweigert, Benutzerdaten sind nicht eindeutig",
   "error2006": "Login verweigert, der Benutzer ist inaktiv",
 
+  "navOverview": "Übersicht",
+  "navCat": "Katzen",
+  "navLitter": "Würfe",
+
   "mandant": "Mandant",
   "benutzername": "Benutzername",
   "password": "Kennwort",

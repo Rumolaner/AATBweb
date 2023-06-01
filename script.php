@@ -112,3 +112,21 @@ function Login() {
 function cb_Login(data) {
   alert("Process data");
 }
+
+function Logout() {
+  const param = {"a": "logout"};
+  $.getJSON(url, param)
+  .done(function (data) {
+    cb_Logout(data);
+  })
+  .fail(function () {
+    Protocol("<?php echo $trans->get('error1003') ?>");
+  })
+  .always(function (data) {
+    cb_always(data);
+  })
+}
+
+function cb_Logout(data) {
+  user = new User();
+}

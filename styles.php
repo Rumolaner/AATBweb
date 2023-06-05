@@ -3,7 +3,6 @@
 header("Content-type: text/css");
 
 ?>
-
 body {
   position: absolute;
   height: 99%;
@@ -22,6 +21,7 @@ header {
 button {
   background-color: white;
   border-color: lightblue;
+  margin: 2px;
 }
 
 nav {
@@ -29,10 +29,6 @@ nav {
   border-bottom: 1px solid black;
   height: 3%;
   width: 100%;
-}
-
-nav button {
-  margin: 2px;
 }
 
 main {
@@ -56,18 +52,13 @@ footer {
 #headerTitle {
   position: relative;
   top: 40%;
+  z-index: -1;
 }
 
 #headerUser {
   border: 1px solid #777777;
   float: right;
-  padding: 10px;
-}
-
-#headerUser button {
-  margin: 2px;
-  background-color: white;
-  border-color: lightblue;
+  padding: 15px;
 }
 
 #message {

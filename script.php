@@ -17,13 +17,6 @@ $(document).ready(function () {
   Init();
 });
 
-class User {
-  constructor(loggedin = false, name = "") {
-    this.loggedin = loggedin;
-    this.name = name;
-  }
-}
-
 function Protocol(text) {
   console.log(new Date().toLocaleTimeString("de-DE") + ": " + text);
 }
@@ -37,6 +30,9 @@ function transSites(sites){
   if (Array.isArray(sites)){
     sites.forEach (function (site, index) {
       if (site['action'] == 'add'){
+        $(site['parent']).html($(site['parent']).html() + site['site']);
+      } else if (site['action'] == 'update') {
+        $(site['element']).remove();
         $(site['parent']).html($(site['parent']).html() + site['site']);
       } else if (site['action'] == 'delete'){
         $(site['parent']).remove();
@@ -80,10 +76,6 @@ function Init() {
 }
 
 function cb_Init(data) {
-  if (data['user']['loggedin'] == false) {
-    //Neuer user oder user löschen und login anzeigen
-    user = new User();
-  }
 }
 
 function Login() {
@@ -96,8 +88,7 @@ function Login() {
   } else {
     const param = {"a": "login", "m": $('#mandant').val(), "u": $('#username').val(), "p": $('#password').val()};
     $.getJSON(url, param)
-    .done(function (data) {
-      cb_Login(data);
+    .done(function () {
     })
     .fail(function () {
       Protocol("<?php echo $trans->get('error1003') ?>");
@@ -107,10 +98,6 @@ function Login() {
     })
   }
   $('#password').val('');
-}
-
-function cb_Login(data) {
-  alert("Process data");
 }
 
 function Logout() {
@@ -128,17 +115,37 @@ function Logout() {
 }
 
 function cb_Logout(data) {
-  user = new User();
 }
 
-function Overview(){
-  alert("Overview in Vordergrund bringen!");
+function showSite(site){
+  if ($('#' + site).length){
+    $('#' + site).show();
+  } else {
+    const param = {"a": "showSite", "s": site};
+    $.getJSON(url, param)
+    .done(function (data) {
+      cb_Logout(data);
+    })
+    .fail(function () {
+      Protocol("<?php echo $trans->get('error1003') ?>");
+    })
+    .always(function (data) {
+      cb_always(data);
+    })
+
+  }
 }
 
-function Cat(){
-  alert("Katzen in Vordergrund bringen!");
-}
-
-function Litter(){
-  alert("Würfe in Vordergrund bringen!");
+function updateSite(site){
+  const param = {"a": "updateSite", "s": site};
+  $.getJSON(url, param)
+  .done(function (data) {
+    cb_Logout(data);
+  })
+  .fail(function () {
+    Protocol("<?php echo $trans->get('error1003') ?>");
+  })
+  .always(function (data) {
+    cb_always(data);
+  })
 }

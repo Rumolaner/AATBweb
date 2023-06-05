@@ -1,6 +1,6 @@
 <?php
 
-$site = file_get_contents('templates/overview.tpl.php');
+$site = file_get_contents('templates/mainLitter.tpl.php');
 if (!$site) {
   $answer->setCOM("Error: ".$trans->get('error1000'));
 } else {

@@ -18,7 +18,7 @@ if (!$user->active){
   $answer->setSite('clear', 'main');
   include ('actions/userbox.mod.php');
   include ('actions/mainnav.mod.php');
-  include ('actions/overview.mod.php');
+  include ('actions/showSite.mod.php');
 }
 
 ?>

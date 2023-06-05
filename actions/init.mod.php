@@ -3,7 +3,7 @@
 if ($user->active){
   include('actions/userbox.mod.php');
   include('actions/mainnav.mod.php');
-  include('actions/overview.mod.php');
+  include('actions/showSite.mod.php');
 } else {
   $site = file_get_contents('templates/login.tpl.php');
   if (!$site) {

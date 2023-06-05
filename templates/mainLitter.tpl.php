@@ -1,0 +1,3 @@
+<div id="mainLitter">
+  Litter - Nothing to see here...
+</div>

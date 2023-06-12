@@ -8,9 +8,9 @@ if (!$site) {
   $site = str_replace("{{time}}", time(), $site);
 
   if (isset($method)){
-    $answer->setSite($method, 'main', $site, '#mainOverview');
+    $answer->setSite($method, 'main', $site, '#mainOverview', true);
   }else{
-    $answer->setSite('add', 'main', $site, '#mainOverview');
+    $answer->setSite('add', 'main', $site, '#mainOverview', true);
   }
 }
 ?>

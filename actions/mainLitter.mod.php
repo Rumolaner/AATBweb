@@ -6,6 +6,6 @@ if (!$site) {
 } else {
 //    $site = str_replace("{{mandant}}", $trans->get('mandant'), $site);
 
-  $answer->setSite('add', 'main', $site);
+  $answer->setSite('add', 'main', $site, '#mainLitter', true);
 }
 ?>

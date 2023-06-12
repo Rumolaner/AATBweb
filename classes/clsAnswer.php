@@ -15,13 +15,14 @@ class clsAnswer {
     $this->com[] = $text;
   }
 
-  function setSite($action, $parent, $site = "", $element = ""){
+  function setSite($action, $parent, $site = "", $element = "", $hideSiblings = false){
     $temp['action'] = $action;
     $temp['parent'] = $parent;
     $temp['site'] = $site;
     if ($element != ""){
       $temp['element'] = $element;
     }
+    $temp['hideSiblings'] = $hideSiblings;
     $this->site[] = $temp;
   }
 

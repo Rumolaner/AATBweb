@@ -29,6 +29,10 @@ function Message(text) {
 function transSites(sites){
   if (Array.isArray(sites)){
     sites.forEach (function (site, index) {
+      if (site['hideSiblings'] == true) {
+        $(site['parent']).children().hide();
+      }
+
       if (site['action'] == 'add'){
         $(site['parent']).html($(site['parent']).html() + site['site']);
       } else if (site['action'] == 'update') {
@@ -119,6 +123,7 @@ function cb_Logout(data) {
 
 function showSite(site){
   if ($('#' + site).length){
+    $('#' + site).siblings().hide();
     $('#' + site).show();
   } else {
     const param = {"a": "showSite", "s": site};

@@ -99,3 +99,45 @@ footer {
 #loginBox button {
   margin: 12px;
 }
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  height: 150px;
+  width: 100%;
+}
+
+.tabs label {
+  order: 1;
+  display: flex;
+  justify-content: start;
+  align-items: left;
+  padding: 0.5rem 2rem;
+  margin-right: 0.2rem;
+  cursor: pointer;
+  background-color: lightgrey;
+  font-weight: bold;
+}
+
+.tabs .tab {
+  order: 9;
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+  display: none;
+  padding: 1rem;
+  background: #fff;
+  padding: 20px;
+}
+
+.tabs input[type="radio"] {
+  display: none;
+}
+
+.tabs input[type="radio"]:checked + label {
+  background: #fff;
+}
+
+.tabs input[type="radio"]:checked + label + .tab {
+  display: block;
+}

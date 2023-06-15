@@ -29,10 +29,6 @@ function Message(text) {
 function transSites(sites){
   if (Array.isArray(sites)){
     sites.forEach (function (site, index) {
-      if (site['hideSiblings'] == true) {
-        $(site['parent']).children().hide();
-      }
-
       if (site['action'] == 'add'){
         $(site['parent']).html($(site['parent']).html() + site['site']);
       } else if (site['action'] == 'update') {
@@ -42,7 +38,11 @@ function transSites(sites){
         $(site['parent']).remove();
       } else if (site['action'] == 'clear'){
         $(site['parent']).html("");
-    }
+      }
+
+      if (site['hideSiblings'] == true) {
+        $(site['element']).siblings().slideUp('slow', (function () { $(site['element']).slideDown('slow');}));
+      }
     });
   }
 }
@@ -123,8 +123,7 @@ function cb_Logout(data) {
 
 function showSite(site){
   if ($('#' + site).length){
-    $('#' + site).siblings().hide();
-    $('#' + site).show();
+    $('#' + site).siblings().slideUp('slow', (function () { $('#' + site).slideDown('slow');}));
   } else {
     const param = {"a": "showSite", "s": site};
     $.getJSON(url, param)
@@ -153,4 +152,10 @@ function updateSite(site){
   .always(function (data) {
     cb_always(data);
   })
+}
+
+function deleteTab(id) {
+
+  $('#' + id + ' div').remove();
+//  alert(id);
 }

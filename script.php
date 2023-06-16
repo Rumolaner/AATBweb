@@ -14,7 +14,16 @@ const url = "perform.php";
 
 $(document).ready(function () {
   $('footer').text($('footer').text() + new Date().getFullYear().toString());
+
   Init();
+});
+
+$(document).on('keypress',function(e) {
+  if(e.which == 13) {
+    if($('form button[type="button"]').length == 1) {
+      $('form button[type="button"]').click();
+    }
+  }
 });
 
 function Protocol(text) {
@@ -155,7 +164,7 @@ function updateSite(site){
 }
 
 function deleteTab(id) {
-
-  $('#' + id + ' div').remove();
-//  alert(id);
+  $("#" + id).next().remove();  //delete label for radio button
+  $("#" + id).next().remove();  //delete content div of tab
+  $("#" + id).remove();         //delete radio button of tab
 }

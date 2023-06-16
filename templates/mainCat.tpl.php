@@ -11,7 +11,7 @@
     Cats Search Result - Still nothing to see here...
   </div>
   <input type="radio" name="catTabs" id="catTab2">
-  <label for="catTab2">Suchergebnis #2</label>
+  <label for="catTab2">Suchergebnis #2 <div display="inline" onclick="deleteTab('catTab2')">[X]</div></label>
   <div class="tab">
     Cats Second Search Result - Still nothing to see here...
   </div>

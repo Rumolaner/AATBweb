@@ -6,7 +6,7 @@
     Litter - Nothing to see here...
   </div>
   <input type="radio" name="litterTabs" id="litterTab1">
-  <label for="litterTab1">Suchergebnis #1</label>
+  <label for="litterTab1">Suchergebnis #1 <div display="inline" onclick="deleteTab('litterTab1')">[X]</div></label>
   <div class="tab">
     Litter Search Result - Still nothing to see here...
   </div>

@@ -24,6 +24,10 @@
   "benutzername": "Benutzername",
   "password": "Kennwort",
   "unbekannt": "Unbekannt",
+  "catfilter": "Katzen - Suchfilter",
+  "name": "Name",
+  "litter": "Wurf",
+  "catfilterhint": "Bitte Filterkriterien eingeben oder alle Felder leer lassen, um alles anzuzeigen",
 
   "btnclear": "Leeren",
   "btnlogin": "Einloggen",

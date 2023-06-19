@@ -141,3 +141,27 @@ footer {
 .tabs input[type="radio"]:checked + label + .tab {
   display: block;
 }
+
+.searchtext {
+  width: 100%;
+}
+
+.search label {
+  background-color: white;
+  clear: left;
+  width: 150px;
+  margin: 0.2rem;
+  display: block;
+  float: left;
+}
+
+.search input {
+  padding: 0.5rem 2rem;
+  margin: 0.2rem;
+  float: left;
+}
+
+.search button {
+  clear: both;
+  margin: 12px;
+}

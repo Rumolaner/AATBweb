@@ -120,7 +120,7 @@ function Logout() {
     cb_Logout(data);
   })
   .fail(function () {
-    Protocol("<?php echo $trans->get('error1003') ?>");
+    Protocol("<?php echo $trans->get('error1005') ?>");
   })
   .always(function (data) {
     cb_always(data);
@@ -140,7 +140,7 @@ function showSite(site){
       cb_Logout(data);
     })
     .fail(function () {
-      Protocol("<?php echo $trans->get('error1003') ?>");
+      Protocol("<?php echo $trans->get('error1006') ?>");
     })
     .always(function (data) {
       cb_always(data);
@@ -156,7 +156,7 @@ function updateSite(site){
     cb_Logout(data);
   })
   .fail(function () {
-    Protocol("<?php echo $trans->get('error1003') ?>");
+    Protocol("<?php echo $trans->get('error1007') ?>");
   })
   .always(function (data) {
     cb_always(data);
@@ -167,4 +167,28 @@ function deleteTab(id) {
   $("#" + id).next().remove();  //delete label for radio button
   $("#" + id).next().remove();  //delete content div of tab
   $("#" + id).remove();         //delete radio button of tab
+}
+
+function getTabNumber(id){
+  let counter = 1;
+  while($('#' + id + counter).length == 1){
+    counter ++;
+  }
+
+  return counter;
+}
+
+function searchCat() {
+  let number = getTabNumber('catTab');
+
+  const param = {"a": "getSearchList", "type": "cat", "number": number, "name": $('#catfiltername').val(), "litter": $('#catfilterlitter').val()};
+  $.getJSON(url, param)
+  .done(function () {
+  })
+  .fail(function () {
+    Protocol("<?php echo $trans->get('error1004') ?>");
+  })
+  .always(function (data) {
+    cb_always(data);
+  })
 }

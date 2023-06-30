@@ -7,6 +7,10 @@
   "error1001": "Template konnte nicht geladen werden",
   "error1002": "Init konnte JSON nicht laden",
   "error1003": "Login konnte JSON nicht laden",
+  "error1004": "getSearchList konnte JSON nicht laden",
+  "error1005": "Logout konnte JSON nicht laden",
+  "error1006": "showSite konnte JSON nicht laden",
+  "error1007": "updateSite konnte JSON nicht laden",
 
   "error2000": "Mandant, Benutzername oder Kennwort sind falsch",
   "error2001": "Der Benutzer ist unbekannt",
@@ -31,5 +35,6 @@
 
   "btnclear": "Leeren",
   "btnlogin": "Einloggen",
-  "btnlogout": "Ausloggen"
+  "btnlogout": "Ausloggen",
+  "btnsearch": "Suchen"
 }

@@ -24,6 +24,10 @@ button {
   margin: 2px;
 }
 
+button[type="reset"] {
+  background-color: red;
+}
+
 nav {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
@@ -34,6 +38,13 @@ nav {
 main {
   height: 67%;
   width: 100%;
+}
+
+article {
+  width: 80%;
+  height: 100%;
+  float: right;
+  border: 1px solid black;
 }
 
 footer {
@@ -164,4 +175,26 @@ footer {
 .search button {
   clear: both;
   margin: 12px;
+}
+
+.searchList {
+  border: 1px solid black;
+  min-width: 250px;
+  width: 20%;
+  height: 100%;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.searchList li {
+  cursor: pointer;
+}
+
+.searchList li:nth-child(even) {
+  background: #eee;
+}
+
+.searchList li:nth-child(odd) {
+  background: #ddd;
 }
